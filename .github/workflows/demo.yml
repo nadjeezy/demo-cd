@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@main
       - uses: azure/login@v1
         with:
-          creds: ${{ secret.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
