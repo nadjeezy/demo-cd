@@ -11,3 +11,10 @@ jobs:
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: azure/docker-login@v1
+        with:
+          login-server: menunovation.azurecr.io  # Registery
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - run: docker build . -t menunovation.azurecr.io/demo
+      - run: docker push menunovation.azurecr.io/demo
